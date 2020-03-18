@@ -11,4 +11,5 @@ run-shell:
 		-e K8S_SERVER='' \
 		-e K8S_CA_DATA='' \
 		-e KELDA_USER_TOKEN='' \
+		-e KELDA_NAMESPACE=$(shell whoami) \
 		$(IMAGE):$(VERSION)
