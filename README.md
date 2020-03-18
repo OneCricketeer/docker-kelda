@@ -1,7 +1,7 @@
-kelda-cli 
+docker-kelda
 ===
 
-![Docker Image Version (latest semver)](https://img.shields.io/docker/v/cricketeerone/kelda-cli?color=blue&sort=semver&style=for-the-badge)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/cricketeerone/docker-kelda?color=blue&sort=semver&style=for-the-badge)
 
 Installs `kelda` and configures `kubectl` for a k8s cluster that is running the Kelda Minion. 
 
@@ -23,7 +23,7 @@ Running
 Without Sync
 
 ```sh
-docker run --rm kelda-cli \
+docker run --rm cricketeerone/docker-kelda \
   -e K8S_SERVER= ... \
   -e KELDA_NAMESPACE=$(whoami) \
   -v /path/to/workspace.yaml:/workspace.yaml:ro \
@@ -33,7 +33,7 @@ docker run --rm kelda-cli \
 [With Sync](https://kelda.io/docs/configuring-kelda/sync/overview/) (requires `kelda.yaml` in your source directory)
 
 ```sh
-docker run --rm kelda-cli \
+docker run --rm cricketeerone/docker-kelda \
   -e K8S_SERVER= ... \
   -e KELDA_NAMESPACE=$(whoami) \
   -v /path/to/workspace.yaml:/workspace.yaml:ro \

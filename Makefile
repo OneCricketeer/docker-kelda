@@ -1,4 +1,4 @@
-IMAGE = kelda-cli
+IMAGE = docker-kelda
 VERSION ?= 0.1.0
 
 .PHONY: build
