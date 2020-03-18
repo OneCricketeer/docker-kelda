@@ -1,5 +1,7 @@
-kelda-cli
+kelda-cli 
 ===
+
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/cricketeerone/kelda-cli?color=blue&sort=semver&style=for-the-badge)
 
 Installs `kelda` and configures `kubectl` for a k8s cluster that is running the Kelda Minion. 
 
