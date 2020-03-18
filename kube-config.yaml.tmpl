@@ -3,26 +3,27 @@ apiVersion: v1
 current-context: kelda
 preferences: {}
 
+{{ with $e := .Env -}}
 clusters:
 - name: kelda-cluster
   cluster:
-{{ with $e := .Env }}{{ with $u := parseUrl $e.K8S_SERVER }}
+{{- with $u := parseUrl $e.K8S_SERVER }}
     server: {{ $u | printf "%q" }}
-    {{ if eq $u.Scheme "https" -}}
-    certificate-authority-data: {{ $e.K8S_CA_DATA }}
-{{ end -}}{{ end }}
+    {{- if eq $u.Scheme "https" }}
+    certificate-authority-data: {{ $e.K8S_CA_DATA | printf "%q" }}
+{{- end -}}{{- end }}
 
 contexts:
 - name: kelda
   context:
-    user: kelda-user
+    user: {{ default $e.KELDA_USERNAME "kelda-user" }}
     cluster: kelda-cluster
     {{ if $e.K8S_NAMESPACE -}}
-    namespace: {{ $e.K8S_NAMESPACE }}
-    {{ end }}
+    namespace: {{ $e.K8S_NAMESPACE | printf "%q" }}
+    {{- end }}
 
 users:
-- name: kelda-user
+- name: {{ default $e.KELDA_USERNAME "kelda-user" }}
   user:
-    token: {{ $e.KELDA_USER_TOKEN }}
-{{ end -}}
+    token: {{ $e.KELDA_USER_TOKEN | printf "%q"}}
+{{- end }}
