@@ -13,3 +13,10 @@ run-shell:
 		-e KELDA_USER_TOKEN='' \
 		-e KELDA_NAMESPACE=$(shell whoami) \
 		$(IMAGE):$(VERSION)
+
+.PHONY: push
+push: build
+	@docker tag $(IMAGE):$(VERSION) cricketeerone/$(IMAGE):$(VERSION)
+	@docker tag $(IMAGE):$(VERSION) cricketeerone/$(IMAGE):latest
+	@docker push cricketeerone/$(IMAGE):$(VERSION)
+	@docker push cricketeerone/$(IMAGE):latest
