@@ -1,0 +1,28 @@
+kind: Config
+apiVersion: v1
+current-context: kelda
+preferences: {}
+
+clusters:
+- name: kelda-cluster
+  cluster:
+{{ with $e := .Env }}{{ with $u := parseUrl $e.K8S_SERVER }}
+    server: {{ $u | printf "%q" }}
+    {{ if eq $u.Scheme "https" -}}
+    certificate-authority-data: {{ $e.K8S_CA_DATA }}
+{{ end -}}{{ end }}
+
+contexts:
+- name: kelda
+  context:
+    user: kelda-user
+    cluster: kelda-cluster
+    {{ if $e.K8S_NAMESPACE -}}
+    namespace: {{ $e.K8S_NAMESPACE }}
+    {{ end }}
+
+users:
+- name: kelda-user
+  user:
+    token: {{ $e.KELDA_USER_TOKEN }}
+{{ end -}}
