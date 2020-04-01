@@ -1,5 +1,5 @@
 # https://kelda.io/docs/configuring-kelda/overview/
 version: v1alpha1
-workspace: /workspace.yaml
+workspace: {{ default .Env.KELDA_WORKSPACE "/workspace.yaml" }}
 context: kelda
 namespace: {{ .Env.KELDA_NAMESPACE }}
