@@ -16,6 +16,7 @@ Variables
 |`K8S_NAMESPACE`|(optional) Sets a `context.namespace` value.|
 |`KELDA_USERNAME`|Sets the `user.name` value for the Kelda account (default: `kelda-user`)|
 |`KELDA_NAMESPACE`|The namespace to use for `kelda dev`|
+|`KELDA_WORKSPACE`|The path to the Kelda `workspace.yaml` file|
 
 Running
 ---
