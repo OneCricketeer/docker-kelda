@@ -1,7 +1,7 @@
 docker-kelda
 ===
 
-![Docker Image Version (latest semver)](https://img.shields.io/docker/v/cricketeerone/docker-kelda?color=blue&sort=semver&style=for-the-badge)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/cricketeerone/docker-kelda?color=blue&sort=semver&style=for-the-badge)](https://hub.docker.com/repository/docker/cricketeerone/docker-kelda)
 
 Installs `kelda` and configures `kubectl` for a k8s cluster that is running the Kelda Minion. 
 
